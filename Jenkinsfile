@@ -3,11 +3,12 @@ pipeline {
   environment {
     IMAGE = "AbhiShrekVyas/helloapp"
   }
-stage('Checkout') {
-  steps {
-    git branch: 'main', url: 'https://github.com/AbhiShrekVyas/helloapp.git'
-  }
-}
+  stages {
+    stage('Checkout') {
+      steps {
+        git branch: 'main', url: 'https://github.com/AbhiShrekVyas/helloapp.git'
+      }
+    }
     stage('Build with Maven') {
       steps {
         sh 'mvn clean package -DskipTests'
@@ -29,8 +30,8 @@ stage('Checkout') {
           credentialsId: 'dockerhub',
           usernameVariable: 'USER',
           passwordVariable: 'PASS')]) {
-          sh 'docker login -u $USER -p $PASS'
-          sh 'docker push $IMAGE:$BUILD_NUMBER'
+            sh 'docker login -u $USER -p $PASS'
+            sh 'docker push $IMAGE:$BUILD_NUMBER'
         }
       }
     }
