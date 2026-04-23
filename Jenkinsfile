@@ -3,9 +3,9 @@ pipeline {
   tools {
     maven 'Maven'
   }
-  environment {
-    IMAGE = "AbhiShrekVyas/helloapp"
-  }
+ environment {
+    IMAGE = "abhishrekvyas/helloapp"  // ← all lowercase
+}
   stages {
     stage('Checkout') {
       steps {
