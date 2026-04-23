@@ -3,12 +3,11 @@ pipeline {
   environment {
     IMAGE = "AbhiShrekVyas/helloapp"
   }
-  stages {
-    stage('Checkout') {
-      steps {
-        git 'https://github.com/AbhiShrekVyas/helloapp.git'
-      }
-    }
+stage('Checkout') {
+  steps {
+    git branch: 'main', url: 'https://github.com/AbhiShrekVyas/helloapp.git'
+  }
+}
     stage('Build with Maven') {
       steps {
         sh 'mvn clean package -DskipTests'
