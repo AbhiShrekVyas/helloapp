@@ -1,12 +1,12 @@
 pipeline {
   agent any
   environment {
-    IMAGE = "abhivyas14/helloapp"
+    IMAGE = "AbhiShrekVyas/helloapp"
   }
   stages {
     stage('Checkout') {
       steps {
-        git 'https://github.com/abhivyas14/helloapp.git'
+        git 'https://github.com/AbhiShrekVyas/helloapp.git'
       }
     }
     stage('Build with Maven') {
